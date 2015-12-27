@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>SpringMVC application</title>
+<title>Home page</title>
 </head>
 <body>
-	<h1>School management system</h1>
-	
-	<h2>${welcomeMessage}</h2>
+	<h1>Home page</h1>
 </body>
 </html>

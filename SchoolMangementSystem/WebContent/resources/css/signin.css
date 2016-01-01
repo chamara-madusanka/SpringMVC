@@ -46,3 +46,17 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.header-message {
+	text-align: -webkit-center;
+	margin-bottom: 10px;
+}
+
+.form-signin-new {
+    margin-top: 150px;
+    background-color: rgba(158, 158, 158, 0.21);
+}
+
+.form-signin-heading-new {
+	margin-top: 0px;
+}

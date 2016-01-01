@@ -10,6 +10,10 @@
  */
 package main.java.com.springmvc.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,15 +33,29 @@ public class MainController {
 
 	@ModelAttribute
 	public void getHeaderMessage(Model model) {
-		model.addAttribute("headerMessage", "Welcome to the SCHOOL MANAGEMENT SYSTEM");
+		model.addAttribute("headerMessage", "SCHOOL MANAGEMENT SYSTEM");
 	}
 
 	/**
-	 * This is the home page controller method
+	 * This is the method for redirecting "/" url to "/home". 
 	 */
-	@RequestMapping(value={"/", "/home"}, method=RequestMethod.GET)
-	public ModelAndView homePage() {
-		ModelAndView modelAndView = new ModelAndView("Home");
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public void handleDefaultPage(HttpServletResponse httpServletResponse) throws IOException {
+
+		String redirect = "redirect:/home";
+		httpServletResponse.sendRedirect(redirect);
+	}
+
+	/**
+	 * This is the method for handling home page request.
+	 * 
+	 * @return ModelAndView
+	 */
+	@RequestMapping(value="/home", method=RequestMethod.GET)
+	public ModelAndView handleHomePage() {
+
+		ModelAndView modelAndView = new ModelAndView("HomePage");
+
 		return modelAndView;
 	}
 
@@ -46,25 +64,12 @@ public class MainController {
 	 * 
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value="/logging", method=RequestMethod.GET)
+	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public ModelAndView handleLogging(@RequestParam(value="logout", required=false) String logout) {
 
-		ModelAndView modelAndView = new ModelAndView("LoggingPage");
+		ModelAndView modelAndView = new ModelAndView("LoginPage");
 
 		return modelAndView;
 	}
-
-	/**
-	 * This is the methode for handling welcome page request.
-	 * 
-	 * @return ModelAndView
-	 */
-	@RequestMapping(value="/welcome", method=RequestMethod.GET)
-    protected ModelAndView handleWelcome() {
-
-        ModelAndView modelAndView = new ModelAndView("WelcomePage");
-
-        return modelAndView;
-    }
 
 }

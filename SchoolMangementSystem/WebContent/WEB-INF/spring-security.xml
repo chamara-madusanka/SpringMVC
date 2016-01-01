@@ -8,16 +8,18 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 		<http auto-config="true" use-expressions="true">
-			<intercept-url pattern="/welcome" access="hasRole('ROLE_ADMIN')" />
+			<intercept-url pattern="/home" access="hasRole('ROLE_ADMIN')" />
+			<intercept-url pattern="/" access="hasRole('ROLE_ADMIN')" />
 			<form-login login-processing-url="/j_spring_security_check"
-						login-page="/logging"
+						login-page="/login"
 						default-target-url="/home"
-						authentication-failure-url="/logging?error"
+						always-use-default-target="true"
+						authentication-failure-url="/login?error"
 						username-parameter="username"
 						password-parameter="password" />
 			<logout logout-url="/j_spring_security_logout"
 					invalidate-session="true"	
-					logout-success-url="/logging?logout" />
+					logout-success-url="/login?logout" />
 			<csrf/>
 		</http>
 

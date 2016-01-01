@@ -6,21 +6,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>School managment system</title>
-<link href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css"
-		rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath()%>/resources/css/bootstrap-theme.min.css"
-		rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/signin.css"
-		rel="stylesheet">
-<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js" /></script>
-<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js" /></script>
+
+	<!-- CSS -->
+	<link href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/resources/css/signin.css" rel="stylesheet">
+
+	<!-- JavaScript -->
+	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-	<h1>${headerMessage}</h1>
+	<div class="col-md-12 header-message">
+		<h1>${headerMessage}</h1>
+	</div>
 	<div class="container">
 		<c:url value="/j_spring_security_check" var="loginUrl" />
-		<form class="form-signin" action="${loginUrl}" method='POST'>
-			<h2 class="form-signin-heading">Please sign in</h2>
+		<form class="form-signin form-signin-new" action="${loginUrl}" method='POST'>
+			<h2 class="form-signin-heading form-signin-heading-new">Please sign in</h2>
 			<input type="text" class="form-control" placeholder="Username" required=""
 					autofocus="" name="username"> 
 			<input type="password" id="inputPassword" class="form-control" placeholder="Password"

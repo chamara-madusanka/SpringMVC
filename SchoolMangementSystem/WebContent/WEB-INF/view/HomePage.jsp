@@ -34,7 +34,7 @@
 					<li class="active"><a href="#">Student management<span class="sr-only">(current)</span></a></li>
 					<li class="dropdown active"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Staff management</span><span class="caret"></span></a>
+						aria-expanded="false">Staff management</a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Academic staff</a></li>
 							<li role="separator" class="divider"></li>
@@ -42,10 +42,11 @@
 						</ul>
 					</li>
 					<li class="active"><a href="#">Events management</a></li>
+					<li class="active"><a href="#">Grade Management</a></li>
 					<li class="dropdown active navbar-right"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-						${pageContext.request.userPrincipal.name}<span class="caret"></span></a>
+						${pageContext.request.userPrincipal.name}</a>
 						<ul class="dropdown-menu">
 							<li><a href="#"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
 							<li role="separator" class="divider"></li>

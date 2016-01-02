@@ -974,7 +974,7 @@ and (max-width : 991px) {
 }
 
 .navbar-inverse {
-	background-color: rgba(40, 96, 144, 0.11);
+	background-color: rgba(40, 96, 144, 0.93);
     border-color: rgba(0,0,0,.075);
 	padding-top: 4.5px;
 	padding-right: 15px;
@@ -982,9 +982,19 @@ and (max-width : 991px) {
 
 .footer-content {
 	text-align: center;
-	background-color: rgba(40, 96, 144, 0.95);
+	background-color: rgba(17, 64, 105, 0.92);
 	border-color: rgba(0,0,0,.075);
 	min-height: 40px;
 	padding-top: 10px;
 	color: rgba(245, 245, 245, 0.65);
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.nav-pills>li.active>a, 
+.nav-pills>li.active>a:focus, 
+.nav-pills>li.active>a:hover {
+    background-color: rgba(51, 122, 183, 0);
 }

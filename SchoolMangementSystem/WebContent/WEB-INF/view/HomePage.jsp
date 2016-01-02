@@ -31,7 +31,7 @@
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav nav-pills">
-					<li class="active"><a href="#">Student management<span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="<%=request.getContextPath()%>/student">Student management<span class="sr-only">(current)</span></a></li>
 					<li class="dropdown active"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">Staff management</a>

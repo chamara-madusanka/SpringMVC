@@ -998,3 +998,18 @@ and (max-width : 991px) {
 .nav-pills>li.active>a:hover {
     background-color: rgba(51, 122, 183, 0);
 }
+
+.student-search {
+	background-color: rgba(84, 72, 58, 0.67);
+    width: 950px;
+    margin-left: 160px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding: 5%;
+   	color: #FFFFFF;
+   	position:fixed; 
+   	top:0px; 
+   	left:0px; 
+   	bottom:0px; 
+   	right:0px;
+}

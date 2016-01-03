@@ -3,7 +3,7 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:tx="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd 
@@ -11,8 +11,8 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd 
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx.xsd">
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<context:component-scan base-package="com.springmvc.controllers" />
 	<context:property-placeholder location="/WEB-INF/property/config.properties" />
@@ -29,7 +29,7 @@
 	</bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
@@ -50,14 +50,14 @@
 		</property>
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 	<bean id="persistenceExceptionTranslationPostProcessor" 
 			class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
-	<bean id="studentDao" class="com.springmvc.dao.impl.StudnetDaoImpl"></bean>
-	<bean id="studentService" class="com.springmvc.service.impl.StudentService"></bean>
+	<bean id="studentDao" class="com.springmvc.dao.impl.StudentDaoImpl"></bean>
+	<bean id="studentService" class="com.springmvc.service.impl.StudentServiceImpl"></bean>
 
 </beans>

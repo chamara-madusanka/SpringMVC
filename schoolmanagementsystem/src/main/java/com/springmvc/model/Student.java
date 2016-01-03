@@ -12,13 +12,25 @@ package com.springmvc.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author Chamara Jayalath
  *
  */
+@Entity
+@Table(name="students")
 public class Student {
 
+	@Id
+	@GeneratedValue
+	@Column(name="studentID")
 	private int studentID;
+
 	private String firstName;
 	private String midName;
 	private String lastName;

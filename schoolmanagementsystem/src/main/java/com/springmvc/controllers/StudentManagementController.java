@@ -10,10 +10,14 @@
  */
 package com.springmvc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.springmvc.model.Student;
+import com.springmvc.service.StudentService;
 
 /**
  * This controller is responsible for managing student management activities.
@@ -23,6 +27,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class StudentManagementController {
+	
+	@Autowired
+	StudentService studentService;
 
 	/**
 	 * This method will hit when the url request is "/student"
@@ -30,7 +37,14 @@ public class StudentManagementController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value="/student", method=RequestMethod.GET)
-	public ModelAndView studentManagementpage() {
-		return new ModelAndView("StudentManagementPage");
+	public String studentManagementpage(Model model) {
+		model.addAttribute("student", new Student());
+		
+		try {
+			model.addAttribute("studentList", studentService.getAllStudents());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "StudentManagementPage";
 	}
 }

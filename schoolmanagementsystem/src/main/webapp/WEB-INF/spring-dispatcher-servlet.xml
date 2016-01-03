@@ -15,9 +15,11 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<context:component-scan base-package="com.springmvc.controllers" />
-
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<context:property-placeholder location="/WEB-INF/property/config.properties" />
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/view/</value>
 		</property>
@@ -25,7 +27,37 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
 
-	<mvc:annotation-driven />
-	<mvc:default-servlet-handler/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.springmvc.model.Student</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="persistenceExceptionTranslationPostProcessor" 
+			class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<bean id="studentDao" class="com.springmvc.dao.impl.StudnetDaoImpl"></bean>
+	<bean id="studentService" class="com.springmvc.service.impl.StudentService"></bean>
+
 </beans>

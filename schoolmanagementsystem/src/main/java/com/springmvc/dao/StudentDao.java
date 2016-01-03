@@ -3,6 +3,9 @@
  *
  *
  *
+ *
+ *
+ *
  * School management system 
  */
 package com.springmvc.dao;
@@ -18,4 +21,5 @@ import com.springmvc.model.Student;
 public interface StudentDao {
 
 	public List<Student> getAllStudents() throws Exception;
+
 }

@@ -26,8 +26,8 @@ import com.springmvc.service.StudentService;
  *
  */
 @Controller
-public class StudentManagementController {
-	
+public class StudentController {
+
 	@Autowired
 	StudentService studentService;
 
@@ -39,12 +39,13 @@ public class StudentManagementController {
 	@RequestMapping(value="/student", method=RequestMethod.GET)
 	public String studentManagementpage(Model model) {
 		model.addAttribute("student", new Student());
-		
+
 		try {
 			model.addAttribute("studentList", studentService.getAllStudents());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return "StudentManagementPage";
 	}
 }

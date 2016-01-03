@@ -1000,16 +1000,19 @@ and (max-width : 991px) {
 }
 
 .student-search {
-	background-color: rgba(84, 72, 58, 0.67);
+	background-color: rgba(16, 15, 39, 0.98);
     width: 950px;
-    margin-left: 160px;
     margin-top: 50px;
     margin-bottom: 40px;
     padding: 5%;
    	color: #FFFFFF;
    	position:fixed; 
    	top:0px; 
-   	left:0px; 
+   	left:165px; 
    	bottom:0px; 
-   	right:0px;
+}
+
+.custom-form-horizontal .form-group {
+	margin-right: 0px;
+    margin-left: 0px;
 }

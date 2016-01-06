@@ -10,11 +10,13 @@
  */
 package com.springmvc.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springmvc.model.Student;
 import com.springmvc.service.StudentService;
@@ -37,15 +39,21 @@ public class StudentController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value="/student", method=RequestMethod.GET)
-	public String studentManagementpage(Model model) {
-		model.addAttribute("student", new Student());
+	public String studentManagementpage() {
 
+		return "StudentManagementPage";
+	}
+	
+	@RequestMapping(value="/searchstudent", method=RequestMethod.POST)
+	public @ResponseBody List<Student> studentSearch() {
+
+		List<Student> studentsList = null;
 		try {
-			model.addAttribute("studentList", studentService.getAllStudents());
+			studentsList = studentService.getAllStudents();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return "StudentManagementPage";
+		return studentsList;
 	}
 }

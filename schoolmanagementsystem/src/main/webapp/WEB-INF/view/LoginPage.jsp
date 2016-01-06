@@ -25,8 +25,8 @@
 		<c:url value="/j_spring_security_check" var="loginUrl" />
 		<form class="form-signin form-signin-new" action="${loginUrl}" method='POST'>
 			<h2 class="form-signin-heading form-signin-heading-new">Please sign in</h2>
-			<input type="text" class="form-control" placeholder="Username" required=""
-					autofocus="" name="username"> 
+			<input type="username" class="form-control" placeholder="Username" required=""
+					autofocus="" name="username">
 			<input type="password" id="inputPassword" class="form-control" placeholder="Password"
 					required="" name="password">
 			<div class="checkbox">

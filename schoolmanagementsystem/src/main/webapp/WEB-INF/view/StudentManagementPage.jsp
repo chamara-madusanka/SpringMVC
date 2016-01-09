@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,32 +43,31 @@
 		<h3>Search Students</h3>
 		<div>
 			<c:url value="/searchstudent" var="searchstudent" />
-			<form:form class="form-horizontal custom-form-horizontal" role="form" id="search-form">
+			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm">
 				<div class="row">
 					<div class="form-group col-md-4 ">
-					  <input class="form-control" type="text" placeholder="First name">
+					  <input class="form-control" type="text" placeholder="First name" id="firstName">
 					</div>
 					<div class="form-group col-md-4 box">
-					  <input class="form-control" type="text" placeholder="Last name">
-					</div>
-					<div class="form-group col-md-4 box">
-					  <input class="form-control" type="text" placeholder="Mid name">
+					  <input class="form-control" type="text" placeholder="Last name" id="lastName">
 					</div>
 				</div>
 				<div class="row">
 					<div class="form-group col-md-4">
-					  <input class="form-control" type="text" placeholder="Student ID">
+					  <input class="form-control" type="text" placeholder="Grade" id="grade">
 					</div>
 					<div class="form-group col-md-4">
-					  <input class="form-control" type="text" placeholder="Grade">
+					  <input class="form-control" type="text" placeholder="Class" id="gradeClass">
 					</div>
+				</div>
+				<div class="row">
 					<div class="form-group col-md-4">
-					  <input class="form-control" type="text" placeholder="Class">
+					  <input class="form-control" type="text" placeholder="Student ID" id="studentID">
 					</div>
 				</div>
        			<button type="submit" class="btn btn-primary" id="searchButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search</button>
-       			<button class="btn btn-primary" id="cancelButton"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>Cancel</button>
 			</form:form>
+			<button class="btn btn-primary" id="clearAllButton"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>clear All</button>
 		</div>
 		<h3>Students List</h3>
 			<div class="table-responsive">

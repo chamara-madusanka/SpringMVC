@@ -1016,3 +1016,8 @@ and (max-width : 991px) {
 	margin-right: 0px;
     margin-left: 0px;
 }
+
+#clearAllButton {
+    margin-left: 110px;
+    margin-top: -33px;
+}

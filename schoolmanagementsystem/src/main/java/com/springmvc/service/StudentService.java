@@ -20,6 +20,6 @@ import com.springmvc.model.Student;
  */
 public interface StudentService {
 
-	public List<Student> getAllStudents() throws Exception;
+	public List<Student> getStudents(Student student) throws Exception;
 
 }

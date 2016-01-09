@@ -18,6 +18,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * @author Chamara Jayalath
  *
@@ -34,7 +36,10 @@ public class Student {
 	private String firstName;
 	private String midName;
 	private String lastName;
+
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd" )
 	private Date birthdate;
+
 	private String address;
 	private String grade;
 	private String gradeClass;

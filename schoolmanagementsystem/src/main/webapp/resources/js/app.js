@@ -5,9 +5,8 @@ function formSubmit() {
 
 jQuery(document).ready(function($) {
 
-	$("#search-form").submit(function(event) {
-
-		// Disble the search button
+	$("#searchButton").click(function(event) {
+		
 		$('#searchTable').empty();
 
 		// Prevent the form from submitting via the browser.
@@ -22,6 +21,11 @@ jQuery(document).ready(function($) {
 // Search Function
 function searchFunction() {
 	var search = {}
+	search["firstName"] = $("#firstName").val();
+	search["lastName"] = $("#lastName").val();
+	search["studentID"] = $("#studentID").val();
+	search["grade"] = $("#grade").val();
+	search["gradeClass"] = $("#gradeClass").val();
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 
@@ -32,6 +36,7 @@ function searchFunction() {
 	    },
 		contentType : "application/json",
 		url : "searchstudent",
+		data : JSON.stringify(search),
 		dataType : 'json',
 		timeout : 100000,
 		success : function(data) {
@@ -74,3 +79,10 @@ function display(data) {
         }
     }
 }
+
+jQuery(document).ready(function($) {
+	$("#clearAllButton").click(function() {
+		var form = document.getElementById("searchForm");
+		form.reset();
+	});
+});

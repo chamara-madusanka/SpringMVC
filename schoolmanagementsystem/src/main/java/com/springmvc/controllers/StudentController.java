@@ -11,13 +11,17 @@
 package com.springmvc.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.springmvc.model.SearchCirteria;
 import com.springmvc.model.Student;
 import com.springmvc.service.StudentService;
 
@@ -45,11 +49,11 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/searchstudent", method=RequestMethod.POST)
-	public @ResponseBody List<Student> studentSearch() {
+	public @ResponseBody List<Student> studentSearch(@RequestBody Student student) {
 
 		List<Student> studentsList = null;
 		try {
-			studentsList = studentService.getAllStudents();
+			studentsList = studentService.getStudents(student);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

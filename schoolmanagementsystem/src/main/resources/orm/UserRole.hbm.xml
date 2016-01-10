@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 10, 2016 12:31:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.springmvc.model.UserRole" table="USER_ROLES">
+        <id name="userRoleID" type="int">
+            <column name="USER_ROLE_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.springmvc.model.User" fetch="select">
+            <column name="USERNAME" length="45" not-null="true" />
+        </many-to-one>
+        <property name="role" type="string">
+            <column name="ROLE" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

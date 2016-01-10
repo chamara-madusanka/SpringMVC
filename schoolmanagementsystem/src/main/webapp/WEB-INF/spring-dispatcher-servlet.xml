@@ -3,7 +3,9 @@
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd 
@@ -11,10 +13,14 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd 
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx
+    	http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util 
 		http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<context:component-scan base-package="com.springmvc.controllers" />
+	<context:component-scan base-package="com.springmvc.*" />
 	<context:property-placeholder location="/WEB-INF/property/config.properties" />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
@@ -42,6 +48,12 @@
 				<value>com.springmvc.model.Student</value>
 			</list>
 		</property>
+		<property name="mappingResources">
+			<list>
+				<value>orm/User.hbm.xml</value>
+				<value>orm/UserRole.hbm.xml</value>
+			</list>
+		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
@@ -59,5 +71,8 @@
 
 	<bean id="studentDao" class="com.springmvc.dao.impl.StudentDaoImpl"></bean>
 	<bean id="studentService" class="com.springmvc.service.impl.StudentServiceImpl"></bean>
+	
+	<bean id="userDao" class="com.springmvc.dao.impl.UserDaoImpl"></bean>
+	<bean id="userDetailsService" class="com.springmvc.service.impl.UserDetailsServiceImpl"></bean>
 
 </beans>

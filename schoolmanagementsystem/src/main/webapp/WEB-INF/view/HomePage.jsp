@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,6 +44,9 @@
 					</li>
 					<li class="active"><a href="#">Events management</a></li>
 					<li class="active"><a href="#">Grade Management</a></li>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<li class="active"><a href="#">User Management</a></li>
+					</sec:authorize>
 					<li class="dropdown active navbar-right"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>

@@ -14,6 +14,9 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -63,9 +66,17 @@ public class MainController {
 	 * This methode is for handling logging request.
 	 * 
 	 * @return ModelAndView
+	 * @throws IOException 
 	 */
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public ModelAndView handleLogging(@RequestParam(value="logout", required=false) String logout) {
+	public ModelAndView handleLogging(HttpServletResponse httpServletResponse, @RequestParam(value="logout", required=false) String logout) throws IOException {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		if(!(authentication instanceof AnonymousAuthenticationToken)) {
+			String redirect = "redirect:/home";
+			httpServletResponse.sendRedirect(redirect);
+		}
 
 		ModelAndView modelAndView = new ModelAndView("LoginPage");
 

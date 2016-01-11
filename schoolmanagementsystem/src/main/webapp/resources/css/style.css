@@ -1021,3 +1021,13 @@ and (max-width : 991px) {
     margin-left: 110px;
     margin-top: -33px;
 }
+
+#buttonHover {
+	background:transparent;
+	border-color: transparent;
+}
+
+#buttonHover:hover {
+	background:transparent;
+	border-color: transparent;
+}

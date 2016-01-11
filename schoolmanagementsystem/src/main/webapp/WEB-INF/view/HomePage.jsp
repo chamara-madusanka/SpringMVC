@@ -45,7 +45,7 @@
 					<li class="active"><a href="#">Events management</a></li>
 					<li class="active"><a href="#">Grade Management</a></li>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<li class="active"><a href="#">User Management</a></li>
+						<li class="active"><a href="<%=request.getContextPath()%>/user">User Management<span class="sr-only">(current)</span></a></li>
 					</sec:authorize>
 					<li class="dropdown active navbar-right"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"

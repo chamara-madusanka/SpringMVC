@@ -70,20 +70,20 @@
 			<button class="btn btn-primary" id="clearAllButton"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>clear All</button>
 		</div>
 		<h3>Students List</h3>
-			<div class="table-responsive">
-			    <table class="table table-bordered hidden" id="searchTable">
-				    <tr>
-				        <th width="80">Student ID</th>
-				        <th width="120">First Name</th>
-						<th width="120">Mid Name</th>
-						<th width="120">Last Name</th>
-				        <th width="120">Birthdate</th>
-						<th width="120">Address</th>
-				        <th width="60">Grade</th>
-				        <th width="60">Class</th>
-				    </tr>
-			    </table>
-			</div>
+		<div class="table-responsive">
+		    <table class="table table-bordered hidden" id="searchTable">
+			    <tr>
+			        <th width="80">Student ID</th>
+			        <th width="120">First Name</th>
+					<th width="120">Mid Name</th>
+					<th width="120">Last Name</th>
+			        <th width="120">Birthdate</th>
+					<th width="120">Address</th>
+			        <th width="60">Grade</th>
+			        <th width="60">Class</th>
+			    </tr>
+		    </table>
+		</div>
 	</div>
 	
 	<!-- Footer -->

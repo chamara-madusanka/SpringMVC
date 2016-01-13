@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,9 +28,8 @@
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav nav-pills">
-					<li class="active"><button id="buttonHover" type="button" class="btn btn-primary"
-						data-toggle="modal" data-target="#addUserModel" data-whatever="@mdo">
-						Add user</button>
+					<li class="active"><a href="<%=request.getContextPath()%>/user/adduser">
+						Add user<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="active navbar-right"><a href="<%=request.getContextPath()%>/home">Home</a></li>
 				</ul>
@@ -36,36 +37,49 @@
 		<!-- /.navbar-collapse -->
 		</div>
 	<!-- /.container-fluid --> 
-	</nav>
+	</nav>	
 	
-	<!-- Popup form -->
-	<div class="modal fade" id="addUserModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="exampleModalLabel">New message</h4>
+	<!-- Form for adding user -->
+	<div class="addUser">
+		<h3>Add user</h3>
+		<div>
+			<c:url value="/user/adduser" var="addUser" />
+			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm">
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">User Name</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="name" name="name" placeholder="Username" value="">
+					</div>
 				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="recipient-name" class="control-label">Recipient:</label>
-							<input type="text" class="form-control" id="recipient-name">
-						</div>
-						<div class="form-group">
-							<label for="message-text" class="control-label">Message:</label>
-							<textarea class="form-control" id="message-text"></textarea>
-						</div>
-					</form>
+				<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="password" placeholder="Password">
+					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Send message</button>
+				<div class="form-group">
+					<label for="enabled" class="col-sm-2 control-label">Enabled</label>
+					<div class="col-sm-2">
+						<label>Yes<input type="checkbox" id="enabled"></label>
+					</div>
+					<div class="col-sm-2">
+						<label>No<input type="checkbox" id="enabled"></label>
+					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="role">Role</label>
+					<div class="col-sm-3">
+						<select id="role" class="form-control">
+							<option>ROLE_ADMIN</option>
+							<option>ROLE_USER</option>
+							<option>ROLE_TEACHER</option>
+						</select> 
+					</div>
+				</div>
+				<button type="submit" class="btn btn-default col-md-1">Submit</button>
+			</form:form>
 		</div>
 	</div>
-	
 	
 	<!-- Footer -->
 	 <div class="footer navbar-fixed-bottom">

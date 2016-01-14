@@ -39,48 +39,6 @@
 	<!-- /.container-fluid --> 
 	</nav>	
 	
-	<!-- Form for adding user -->
-	<div class="addUser">
-		<h3>Add user</h3>
-		<div>
-			<c:url value="/user/adduser" var="addUser" />
-			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm">
-				<div class="form-group">
-					<label for="name" class="col-sm-2 control-label">User Name</label>
-					<div class="col-sm-4">
-						<input type="text" class="form-control" id="name" name="name" placeholder="Username" value="">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="password" class="col-sm-2 control-label">Password</label>
-					<div class="col-sm-4">
-						<input type="password" class="form-control" id="password" placeholder="Password">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="enabled" class="col-sm-2 control-label">Enabled</label>
-					<div class="col-sm-2">
-						<label>Yes<input type="checkbox" id="enabled"></label>
-					</div>
-					<div class="col-sm-2">
-						<label>No<input type="checkbox" id="enabled"></label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label" for="role">Role</label>
-					<div class="col-sm-3">
-						<select id="role" class="form-control">
-							<option>ROLE_ADMIN</option>
-							<option>ROLE_USER</option>
-							<option>ROLE_TEACHER</option>
-						</select> 
-					</div>
-				</div>
-				<button type="submit" class="btn btn-default col-md-1">Submit</button>
-			</form:form>
-		</div>
-	</div>
-	
 	<!-- Footer -->
 	 <div class="footer navbar-fixed-bottom">
 	    <div class="footer-content">Developed By Chamara Jayalath</div>

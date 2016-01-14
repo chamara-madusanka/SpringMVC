@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,34 +36,50 @@
 	<!-- /.container-fluid --> 
 	</nav>
 	
-	<!-- Popup form -->
-	<div class="modal fade" id="addUserModel" tabindex="-1" role="dialog" aria-labelledby="userModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="userModalLabel">New message</h4>
+	<!-- Form for adding user -->
+	<div class="addUser">
+		<h3>Add user</h3>
+		<div>
+			<c:url value="/user/adduser" var="addUser" />
+			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm" action="adduser" method="POST">
+				<div class="form-group">
+					<label for="name" class="col-sm-2 control-label">User Name</label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control form-control-edited" id="username" name="username" placeholder="Username" value="">
+					</div>
 				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="recipient-name" class="control-label">Recipient:</label>
-							<input type="text" class="form-control" id="recipient-name">
-						</div>
-						<div class="form-group">
-							<label for="message-text" class="control-label">Message:</label>
-							<textarea class="form-control" id="message-text"></textarea>
-						</div>
-					</form>
+				<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">Password</label>
+					<div class="col-sm-5">
+						<input type="password" class="form-control form-control-edited" id="password" name="password" placeholder="Password">
+					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Create User</button>
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="role">Role</label>
+					<div class="col-sm-5">
+						<select id="role" class="form-control form-control-edited" name="userrole">
+							<option disabled="disabled" selected="selected">Select an option</option>
+							<option>ROLE_ADMIN</option>
+							<option>ROLE_STUDENT</option>
+							<option>ROLE_TEACHER</option>
+						</select> 
+					</div>
 				</div>
-			</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="role">Enabled</label>
+					<div class="col-sm-5">
+						<select id="enabled" class="form-control form-control-edited" name="enabled">
+							<option disabled="disabled" selected="selected">Select an option</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select> 
+					</div>
+				</div>
+				<button type="submit" class="btn btn-default col-md-2" id="addUser">Submit</button>
+			</form:form>
+			<button class="btn btn-default col-md-2" id="cancelAddUser"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>Cancel</button>
 		</div>
 	</div>
-	
 	
 	<!-- Footer -->
 	 <div class="footer navbar-fixed-bottom">

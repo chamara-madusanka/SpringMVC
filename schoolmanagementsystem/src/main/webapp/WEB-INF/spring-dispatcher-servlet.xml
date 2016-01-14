@@ -74,5 +74,6 @@
 	
 	<bean id="userDao" class="com.springmvc.dao.impl.UserDaoImpl"></bean>
 	<bean id="userDetailsService" class="com.springmvc.service.impl.UserDetailsServiceImpl"></bean>
+	<bean id="userService" class="com.springmvc.service.impl.UserDetailsServiceImpl"></bean>
 
 </beans>

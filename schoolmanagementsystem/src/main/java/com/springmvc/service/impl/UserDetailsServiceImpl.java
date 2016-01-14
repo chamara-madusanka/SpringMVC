@@ -22,12 +22,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.model.UserRole;
+import com.springmvc.service.UserService;
 
 /**
  * @author Chamara Jayalath
  *
  */
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 	
 	@Autowired
 	UserDao userDao;
@@ -51,6 +52,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		
 		List<GrantedAuthority> list = new ArrayList<>(setAuthority);
 		return list;
+	}
+
+	@Override
+	public void addUser(com.springmvc.model.User user) {
+		userDao.addUser(user);
 	}
 
 }

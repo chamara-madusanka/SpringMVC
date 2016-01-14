@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,6 +38,15 @@ public class UserDaoImpl implements UserDao {
 			user = users.get(0);
 		}
 		return user;
+	}
+
+	@Override
+	public void addUser(User user) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(user);
+		transaction.commit();
+		session.close();
 	}
 
 }

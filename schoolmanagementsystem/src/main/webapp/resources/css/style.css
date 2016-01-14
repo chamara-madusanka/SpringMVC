@@ -1044,3 +1044,15 @@ and (max-width : 991px) {
    	left:165px; 
    	bottom:0px;
 }
+
+#addUser {
+    margin-left: 152px;
+}
+
+#cancelAddUser {
+    margin-left: 10px;
+}
+
+.form-control-edited {
+	width: 91%;
+}

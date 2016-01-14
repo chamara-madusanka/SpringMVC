@@ -23,10 +23,6 @@ public class UserRole {
 		this.user = user;
 		this.role = role;
 	}
-	
-	public UserRole(String role) {
-		this.role = role;
-	}
 
 	/**
 	 * @return the user

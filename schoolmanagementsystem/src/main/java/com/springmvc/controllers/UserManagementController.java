@@ -54,11 +54,11 @@ public class UserManagementController {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String hashedPassword = encoder.encode(password);
 		
-		Set<UserRole> set = new HashSet<>();
-		set.add(new UserRole(role));
-		User user = new User(userName, hashedPassword, enabled, set);
-
+		User user = new User(userName, hashedPassword, enabled);
 		userService.addUser(user);
+		
+		UserRole userRole = new UserRole(user, role);
+		userService.addUserRole(userRole);
 
 		return new ModelAndView("AddUser");
 	}

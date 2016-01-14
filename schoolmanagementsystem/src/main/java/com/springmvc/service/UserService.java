@@ -8,6 +8,7 @@
 package com.springmvc.service;
 
 import com.springmvc.model.User;
+import com.springmvc.model.UserRole;
 
 /**
  * @author Chamara Jayalath
@@ -16,5 +17,7 @@ import com.springmvc.model.User;
 public interface UserService {
 	
 	public void addUser(User user);
+	
+	public void addUserRole(UserRole userRole);
 	
 }

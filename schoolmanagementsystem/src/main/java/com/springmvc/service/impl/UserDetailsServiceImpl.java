@@ -59,4 +59,9 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 		userDao.addUser(user);
 	}
 
+	@Override
+	public void addUserRole(UserRole userRole) {
+		userDao.addUserRole(userRole);
+	}
+
 }

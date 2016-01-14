@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.model.User;
+import com.springmvc.model.UserRole;
 
 /**
  * @author Chamara Jayalath
@@ -45,6 +46,15 @@ public class UserDaoImpl implements UserDao {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(user);
+		transaction.commit();
+		session.close();
+	}
+
+	@Override
+	public void addUserRole(UserRole userRole) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(userRole);
 		transaction.commit();
 		session.close();
 	}

@@ -15,12 +15,16 @@
 	<link href="<%=request.getContextPath()%>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/resources/bootstrap/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<%=request.getContextPath()%>/resources/css/style.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/resources/jqueryui/jquery-ui.min.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/resources/jqueryui/jquery-ui.structure.min.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/resources/jqueryui/jquery-ui.theme.min.css" rel="stylesheet">
 
 	<!-- JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/app.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/userManagement.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/jqueryui/jquery-ui.min.js"></script>
 </head>
 <body>
 	<!-- navigation bar -->
@@ -38,26 +42,28 @@
 	
 	<!-- Form for adding user -->
 	<div class="addUser">
-		<h3>Add user</h3>
-		<div>
+		<div class="headerAddUser">
+			<span>ADD USER</span>
+		</div>
+		<div class="userForm">
 			<c:url value="/user/adduser" var="addUser" />
 			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm" action="adduser" method="POST">
 				<div class="form-group">
 					<label for="name" class="col-sm-2 control-label">User Name</label>
 					<div class="col-sm-5">
-						<input type="text" class="form-control form-control-edited" id="username" name="username" placeholder="Username" value="">
+						<input type="text" class="form-control form-control-edited" id="username" placeholder="Username" value="">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="password" class="col-sm-2 control-label">Password</label>
 					<div class="col-sm-5">
-						<input type="password" class="form-control form-control-edited" id="password" name="password" placeholder="Password">
+						<input type="password" class="form-control form-control-edited" id="password" placeholder="Password">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="role">Role</label>
 					<div class="col-sm-5">
-						<select id="role" class="form-control form-control-edited" name="userrole">
+						<select id="userrole" class="form-control form-control-edited">
 							<option disabled="disabled" selected="selected">Select an option</option>
 							<option>ROLE_ADMIN</option>
 							<option>ROLE_STUDENT</option>
@@ -70,8 +76,8 @@
 					<div class="col-sm-5">
 						<select id="enabled" class="form-control form-control-edited" name="enabled">
 							<option disabled="disabled" selected="selected">Select an option</option>
-							<option>Yes</option>
-							<option>No</option>
+							<option>true</option>
+							<option>false</option>
 						</select> 
 					</div>
 				</div>
@@ -79,6 +85,13 @@
 			</form:form>
 			<button class="btn btn-default col-md-2" id="cancelAddUser"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>Cancel</button>
 		</div>
+	</div>
+
+	<div id="dialog" title="Confirmation Required" hidden>
+	  User is successfully added. Do you want to add another?
+	</div>
+	<div id="dialogError" title="Error!" hidden>
+		User creation error! Check again.
 	</div>
 	
 	<!-- Footer -->

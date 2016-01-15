@@ -42,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void addUser(User user) {
+	public void addUser(User user) throws Exception {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(user);
@@ -51,7 +51,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void addUserRole(UserRole userRole) {
+	public void addUserRole(UserRole userRole) throws Exception {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		session.save(userRole);

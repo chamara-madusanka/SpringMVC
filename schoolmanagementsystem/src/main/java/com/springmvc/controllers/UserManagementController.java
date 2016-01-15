@@ -14,12 +14,17 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.springmvc.model.ResponseModel;
 import com.springmvc.model.User;
+import com.springmvc.model.UserAndRole;
 import com.springmvc.model.UserRole;
 import com.springmvc.service.UserService;
 
@@ -45,22 +50,29 @@ public class UserManagementController {
 	}
 	
 	@RequestMapping(value="/user/adduser", method=RequestMethod.POST)
-	public ModelAndView addUser(@RequestParam Map<String, String> userAttributes) {
-		String userName = userAttributes.get("username");
-		String password = userAttributes.get("password");
-		String role = userAttributes.get("userrole");
-		boolean enabled = userAttributes.get("enabled").equals("Yes") ? true : false;
+	public @ResponseBody ResponseModel addUser(@RequestBody UserAndRole userAndRole) {
+		String userName = userAndRole.getUsername();
+		String password = userAndRole.getPassword();
+		String role = userAndRole.getRole();
+		boolean enabled = userAndRole.isEnabled();
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String hashedPassword = encoder.encode(password);
 		
 		User user = new User(userName, hashedPassword, enabled);
-		userService.addUser(user);
-		
 		UserRole userRole = new UserRole(user, role);
-		userService.addUserRole(userRole);
-
-		return new ModelAndView("AddUser");
+		
+		ResponseModel model = new ResponseModel();
+		
+		try {
+			userService.addUser(user);
+			userService.addUserRole(userRole);
+			model.setResponse(true);
+		} catch (Exception e) {
+			model.setResponse(false);
+		}
+		
+		return model;
 	}
 
 }

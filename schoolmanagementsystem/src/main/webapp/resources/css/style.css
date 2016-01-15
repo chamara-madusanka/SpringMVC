@@ -1056,3 +1056,11 @@ and (max-width : 991px) {
 .form-control-edited {
 	width: 91%;
 }
+
+.headerAddUser {
+	color: #0080ff;
+    font-size: 40px;
+    margin-left: -40px;
+    margin-bottom: 50px;
+    margin-top: -40px;
+}

@@ -7,8 +7,8 @@ public interface UserDao {
 		
 	public User findByUserName(String userName);
 	
-	public void addUser(User user);
+	public void addUser(User user) throws Exception;
 	
-	public void addUserRole(UserRole userRole);
+	public void addUserRole(UserRole userRole) throws Exception;
 	
 }

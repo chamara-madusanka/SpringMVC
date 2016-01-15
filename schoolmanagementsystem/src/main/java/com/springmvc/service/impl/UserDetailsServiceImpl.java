@@ -55,12 +55,12 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public void addUser(com.springmvc.model.User user) {
+	public void addUser(com.springmvc.model.User user) throws Exception {
 		userDao.addUser(user);
 	}
 
 	@Override
-	public void addUserRole(UserRole userRole) {
+	public void addUserRole(UserRole userRole) throws Exception {
 		userDao.addUserRole(userRole);
 	}
 

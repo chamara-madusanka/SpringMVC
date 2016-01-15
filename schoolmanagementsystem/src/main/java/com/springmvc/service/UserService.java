@@ -16,8 +16,8 @@ import com.springmvc.model.UserRole;
  */
 public interface UserService {
 	
-	public void addUser(User user);
+	public void addUser(User user) throws Exception;
 	
-	public void addUserRole(UserRole userRole);
+	public void addUserRole(UserRole userRole) throws Exception;
 	
 }

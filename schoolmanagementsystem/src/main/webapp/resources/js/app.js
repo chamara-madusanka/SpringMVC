@@ -75,7 +75,16 @@ function display(data) {
             }
         }
         if(txt != ""){
-            $("#searchTable").append(txt).removeClass("hidden");
+        	var header = "<tr><th width='80'>Student ID</th>" +
+        						"<th width='120'>First Name</th>" +
+        						"<th width='120'>Mid Name</th>" +
+        						"<th width='120'>Last Name</th>" +
+        						"<th width='120'>Birthdate</th>" +
+        						"<th width='120'>Address</th>" +
+        						"<th width='60'>Grade</th>" +
+        						"<th width='60'>Class</th></tr>";
+        	var table = header + txt;
+            $("#searchTable").append(table).removeClass("hidden");
         }
     }
 }

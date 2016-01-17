@@ -39,6 +39,36 @@
 	<!-- /.container-fluid --> 
 	</nav>	
 	
+	<!-- Search form -->
+	<div class="student-search">
+		<h3>Search users</h3>
+		<div>
+			<form:form class="form-horizontal custom-form-horizontal" role="form" id="searchForm">
+				<div class="row">
+					<div class="form-group col-md-4 ">
+					  <input class="form-control" type="text" placeholder="User Name" id="username">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-4">
+					  <input class="form-control" type="text" placeholder="User Roel" id="userrole">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-4">
+					  <input class="form-control" type="text" placeholder="Enabled" id="enabled">
+					</div>
+				</div>
+       			<button type="submit" class="btn btn-primary" id="userSearchButton"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>Search</button>
+			</form:form>
+			<button class="btn btn-primary" id="clearAllButton"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>clear All</button>
+		</div>
+		<h3>User List</h3>
+		<div class="table-responsive">
+		    <table class="table table-bordered hidden" id="searchTable"></table>
+		</div>
+	</div>
+	
 	<!-- Footer -->
 	 <div class="footer navbar-fixed-bottom">
 	    <div class="footer-content">Developed By Chamara Jayalath</div>

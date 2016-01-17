@@ -37,8 +37,6 @@
 	<!-- /.container-fluid --> 
 	</nav>
 	
-	<div id="feedback"></div>
-	
 	<div class="student-search">
 		<h3>Search Students</h3>
 		<div>
@@ -71,18 +69,7 @@
 		</div>
 		<h3>Students List</h3>
 		<div class="table-responsive">
-		    <table class="table table-bordered hidden" id="searchTable">
-			    <tr>
-			        <th width="80">Student ID</th>
-			        <th width="120">First Name</th>
-					<th width="120">Mid Name</th>
-					<th width="120">Last Name</th>
-			        <th width="120">Birthdate</th>
-					<th width="120">Address</th>
-			        <th width="60">Grade</th>
-			        <th width="60">Class</th>
-			    </tr>
-		    </table>
+		    <table class="table table-bordered hidden" id="searchTable"></table>
 		</div>
 	</div>
 	

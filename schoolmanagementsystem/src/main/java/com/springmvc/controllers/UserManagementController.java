@@ -15,6 +15,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvc.model.ResponseModel;
+import com.springmvc.model.SearchUserModel;
 import com.springmvc.model.User;
 import com.springmvc.model.UserAndRole;
 import com.springmvc.model.UserRole;
@@ -77,12 +79,12 @@ public class UserManagementController {
 	}
 	
 	@RequestMapping(value="/searchUsers", method=RequestMethod.POST)
-	public @ResponseBody List<UserAndRole> searchUsers(@RequestBody UserAndRole userAndRole) {
+	public @ResponseBody List<SearchUserModel> searchUsers(@RequestBody SearchUserModel searchUserModel) {
 		
-		List<UserAndRole> returnList = null;
+		List<SearchUserModel> returnList = null;
 		
 		try {
-			returnList = userService.searchUsers(userAndRole);
+			returnList = userService.searchUsers(searchUserModel);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -12,9 +12,9 @@ package com.springmvc.model;
  *
  */
 public class SearchUserModel {
-	String username;
-	String role;
-	boolean enabled;
+	private String username;
+	private String role;
+	private boolean enabled;
 
 	/**
 	 * @return the username

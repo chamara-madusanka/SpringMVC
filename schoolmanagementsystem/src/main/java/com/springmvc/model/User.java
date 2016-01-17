@@ -36,6 +36,11 @@ public class User {
 		this.enabled = enabled;
 		this.userRole = userRole;
 	}
+	
+	public User(String username, boolean enabled) {
+		this.username = username;
+		this.enabled = enabled;
+	}
 
 	/**
 	 * @return the password

@@ -7,6 +7,8 @@
  */
 package com.springmvc.dao.impl;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -20,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.model.ResponseModel;
+import com.springmvc.model.SearchUserModel;
 import com.springmvc.model.User;
 import com.springmvc.model.UserAndRole;
 import com.springmvc.model.UserRole;
@@ -64,15 +67,13 @@ public class UserDaoImpl implements UserDao {
 		session.close();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<UserAndRole> searchUsers(UserAndRole userAndRole) throws Exception {
-		String userName = userAndRole.getUsername();
-		String password = userAndRole.getPassword();
-		String role = userAndRole.getRole();
-		boolean enabled = userAndRole.isEnabled();
-		User user = new User(userName, password, enabled);
-		UserRole userRole = new UserRole(user, role);
-		
+	public List<SearchUserModel> searchUsers(SearchUserModel searchUserModel) throws Exception {
+		String userName = searchUserModel.getUsername();
+		String role = searchUserModel.getRole();
+		boolean enabled = searchUserModel.isEnabled();
+
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(UserRole.class, "userRole").
 				createAlias("userRole.user", "user").
@@ -85,9 +86,17 @@ public class UserDaoImpl implements UserDao {
 					add(Restrictions.eq("user.enabled", enabled)).
 					add(Restrictions.eq("userRole.role", role));
 		
-		List<UserAndRole> userAndRoles = criteria.list();
+		List<Object> tmpList = criteria.list();
 		
-		return userAndRoles;
+		List<SearchUserModel> searchUserModels = new ArrayList<>();
+		
+		for(Object tmp : tmpList) {
+			@SuppressWarnings("unused")
+			String username = ((SearchUserModel)tmp).getUsername();
+			String roleuser = ((SearchUserModel)tmp).getRole();
+		}
+		
+		return searchUserModels;
 	}
 
 }

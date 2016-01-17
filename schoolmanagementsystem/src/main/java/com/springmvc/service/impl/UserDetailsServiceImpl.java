@@ -22,6 +22,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.springmvc.dao.UserDao;
 import com.springmvc.model.ResponseModel;
+import com.springmvc.model.SearchUserModel;
 import com.springmvc.model.UserAndRole;
 import com.springmvc.model.UserRole;
 import com.springmvc.service.UserService;
@@ -67,8 +68,8 @@ public class UserDetailsServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-	public List<UserAndRole> searchUsers(UserAndRole userAndRole) throws Exception {
-		return userDao.searchUsers(userAndRole);
+	public List<SearchUserModel> searchUsers(SearchUserModel searchUserModel) throws Exception {
+		return userDao.searchUsers(searchUserModel);
 	}
 
 }

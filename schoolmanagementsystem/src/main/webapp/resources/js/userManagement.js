@@ -146,11 +146,12 @@ function enableSearchButton(flag) {
 
 function display(data) {
 	var len = data.length;
+	alert(data[0]);
     var txt = "";
     if(len > 0){
         for(var i=0;i<len;i++){
-            if(data[i].studentID){
-                txt += "<tr><td>"+data[i].userName+"</td><td>"+data[i].userRole+
+            if(data[i].username != ""){
+                txt += "<tr><td>"+data[i].username+"</td><td>"+data[i].role+
                 "</td><td>"+data[i].enabled+
                 "</td></tr>";
             }

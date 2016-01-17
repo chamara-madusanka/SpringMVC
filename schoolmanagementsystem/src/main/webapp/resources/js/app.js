@@ -84,6 +84,7 @@ function display(data) {
         						"<th width='60'>Grade</th>" +
         						"<th width='60'>Class</th></tr>";
         	var table = header + txt;
+        	$('#studentListHeader').removeClass("hidden");
             $("#searchTable").append(table).removeClass("hidden");
         }
     }

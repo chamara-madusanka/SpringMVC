@@ -8,6 +8,7 @@
 package com.springmvc.controllers;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -73,6 +74,20 @@ public class UserManagementController {
 		}
 		
 		return model;
+	}
+	
+	@RequestMapping(value="/searchUsers", method=RequestMethod.POST)
+	public @ResponseBody List<ResponseModel> searchUsers(@RequestBody ResponseModel responseModel) {
+		
+		List<ResponseModel> returnModel = null;
+		
+		try {
+			returnModel = userService.searchUsers(responseModel);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return returnModel;
 	}
 
 }

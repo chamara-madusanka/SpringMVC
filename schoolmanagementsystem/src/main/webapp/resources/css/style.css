@@ -963,6 +963,10 @@ p {
 	font-size: smaller;
 }
 
+#searchButton {
+	width: 120px;
+}
+
 #userSearchButton {
 	width: 120px;
 }

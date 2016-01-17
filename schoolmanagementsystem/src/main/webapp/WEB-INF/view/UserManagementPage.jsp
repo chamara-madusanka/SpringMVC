@@ -19,7 +19,6 @@
 	<!-- JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/app.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/userManagement.js"></script>
 </head>
 <body>
@@ -63,7 +62,9 @@
 			</form:form>
 			<button class="btn btn-primary" id="clearAllButton"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>clear All</button>
 		</div>
-		<h3>User List</h3>
+		<div class="hidden" id="userListHeader">
+			<h3>User List</h3>
+		</div>
 		<div class="table-responsive">
 		    <table class="table table-bordered hidden" id="searchTable"></table>
 		</div>

@@ -16,6 +16,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springmvc.dao.UserDao;
+import com.springmvc.model.ResponseModel;
 import com.springmvc.model.User;
 import com.springmvc.model.UserRole;
 
@@ -57,6 +58,11 @@ public class UserDaoImpl implements UserDao {
 		session.save(userRole);
 		transaction.commit();
 		session.close();
+	}
+
+	@Override
+	public List<ResponseModel> searchUsers(ResponseModel responseModel) throws Exception {
+		return null;
 	}
 
 }

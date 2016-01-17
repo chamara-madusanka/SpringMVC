@@ -77,17 +77,17 @@ public class UserManagementController {
 	}
 	
 	@RequestMapping(value="/searchUsers", method=RequestMethod.POST)
-	public @ResponseBody List<ResponseModel> searchUsers(@RequestBody ResponseModel responseModel) {
+	public @ResponseBody List<UserAndRole> searchUsers(@RequestBody UserAndRole userAndRole) {
 		
-		List<ResponseModel> returnModel = null;
+		List<UserAndRole> returnList = null;
 		
 		try {
-			returnModel = userService.searchUsers(responseModel);
+			returnList = userService.searchUsers(userAndRole);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return returnModel;
+		return returnList;
 	}
 
 }

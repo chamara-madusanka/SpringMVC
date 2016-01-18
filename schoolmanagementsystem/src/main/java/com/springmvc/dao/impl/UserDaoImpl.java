@@ -18,6 +18,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projection;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.AliasToBeanResultTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.springmvc.dao.UserDao;
@@ -86,17 +87,19 @@ public class UserDaoImpl implements UserDao {
 					add(Restrictions.eq("user.enabled", enabled)).
 					add(Restrictions.eq("userRole.role", role));
 		
-		List<Object> tmpList = criteria.list();
+		List<SearchUserModel> returnList = new ArrayList<>();
 		
-		List<SearchUserModel> searchUserModels = new ArrayList<>();
+		List<Object[]> listToReturn = criteria.list();
 		
-		for(Object tmp : tmpList) {
-			@SuppressWarnings("unused")
-			String username = ((SearchUserModel)tmp).getUsername();
-			String roleuser = ((SearchUserModel)tmp).getRole();
+		for(Object[] raw: listToReturn) {
+			SearchUserModel model = new SearchUserModel();
+			model.setUsername((String)raw[1]);
+			model.setRole((String)raw[0]);
+			model.setEnabled((boolean)raw[2]);
+			returnList.add(model);
 		}
 		
-		return searchUserModels;
+		return returnList;
 	}
 
 }

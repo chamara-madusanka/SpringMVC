@@ -9,10 +9,8 @@ package com.springmvc.service;
 
 import java.util.List;
 
-import com.springmvc.model.ResponseModel;
 import com.springmvc.model.SearchUserModel;
 import com.springmvc.model.User;
-import com.springmvc.model.UserAndRole;
 import com.springmvc.model.UserRole;
 
 /**

@@ -970,3 +970,9 @@ p {
 #userSearchButton {
 	width: 120px;
 }
+
+.table-responsive {
+	overflow:overlay;
+	height:475px;
+	width:100%;
+}

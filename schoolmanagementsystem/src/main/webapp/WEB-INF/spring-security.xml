@@ -13,6 +13,7 @@
 			<intercept-url pattern="/student" access="hasRole('ROLE_ADMIN')" />
 			<intercept-url pattern="/user" access="hasRole('ROLE_ADMIN')" />
 			<intercept-url pattern="/user/adduser" access="hasRole('ROLE_ADMIN')" />
+			<intercept-url pattern="/student/addstudent" access="hasRole('ROLE_ADMIN')"/>
 			<form-login login-processing-url="/j_spring_security_check"
 						login-page="/login"
 						default-target-url="/home"

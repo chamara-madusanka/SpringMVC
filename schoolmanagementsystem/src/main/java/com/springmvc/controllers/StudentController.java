@@ -57,4 +57,11 @@ public class StudentController {
 
 		return studentsList;
 	}
+	
+	@RequestMapping(value="/student/addstudent", method=RequestMethod.GET)
+	public String addStudent() {
+		
+		return "AddStudentPage";
+		
+	}
 }

@@ -976,3 +976,11 @@ p {
 	height:475px;
 	width:100%;
 }
+
+#addStudent {
+	margin-left: 152px;
+}
+
+#cancelAddStudent {
+	margin-left: 10px;
+}

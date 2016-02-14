@@ -27,7 +27,7 @@
 		<div class="container-fluid">
 			<div class="collapse navbar-collapse">
 				<ul class="nav nav-pills">
-					<li class="active"><a href="#">Add student<span class="sr-only">(current)</span></a></li>
+					<li class="active"><a href="<%=request.getContextPath()%>/student/addstudent">Add student<span class="sr-only">(current)</span></a></li>
 					<li class="active"><a href="#">Student marks</a></li>
 					<li class="active navbar-right"><a href="<%=request.getContextPath()%>/home">Home</a></li>
 				</ul>

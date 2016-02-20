@@ -45,5 +45,7 @@ public interface StudentDao {
 	public List<Student> getStudentByGradeAndClass(String grade, String gradeClass);
 
 	public List<Student> getStudentByGrade(String grade);
+	
+	public void addStudent(Student student) throws Exception;
 
 }

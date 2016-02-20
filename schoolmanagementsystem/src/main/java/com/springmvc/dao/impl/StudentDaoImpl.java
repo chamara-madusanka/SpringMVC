@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -157,6 +158,15 @@ public class StudentDaoImpl implements StudentDao {
 				.add(Restrictions.eq("grade", grade)).list();
 		session.close();
 		return studentList;
+	}
+
+	@Override
+	public void addStudent(Student student) throws Exception {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(student);
+		transaction.commit();
+		session.close();
 	}
 
 }

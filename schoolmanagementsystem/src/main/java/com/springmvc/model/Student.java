@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -29,9 +30,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Student {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="studentID")
-	private int studentID;
+	private Integer studentID;
 
 	private String firstName;
 	private String midName;
@@ -47,7 +48,7 @@ public class Student {
 	/**
 	 * @return the studentID
 	 */
-	public int getStudentID() {
+	public Integer getStudentID() {
 		return studentID;
 	}
 
@@ -56,7 +57,7 @@ public class Student {
 	 * 
 	 * @param studentID the studentID to set
 	 */
-	public void setStudentID(int studentID) {
+	public void setStudentID(Integer studentID) {
 		this.studentID = studentID;
 	}
 

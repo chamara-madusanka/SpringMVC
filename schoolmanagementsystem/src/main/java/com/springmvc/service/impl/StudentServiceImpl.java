@@ -91,4 +91,15 @@ public class StudentServiceImpl implements StudentService {
 		return studentsList;
 	}
 
+	@Override
+	public boolean addStudent(Student student) throws Exception {
+		
+		if(student != null) {
+			studentDao.addStudent(student);
+			return true;
+		}
+
+		return false;
+	}
+
 }

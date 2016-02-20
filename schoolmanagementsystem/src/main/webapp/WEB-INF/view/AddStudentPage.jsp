@@ -22,7 +22,6 @@
 	<!-- JavaScript -->
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/app.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/jqueryui/jquery-ui.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/studentManagement.js"></script>
 </head>

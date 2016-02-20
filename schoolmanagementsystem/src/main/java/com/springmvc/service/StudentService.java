@@ -21,5 +21,7 @@ import com.springmvc.model.Student;
 public interface StudentService {
 
 	public List<Student> getStudents(Student student) throws Exception;
+	
+	public boolean addStudent(Student student) throws Exception;
 
 }

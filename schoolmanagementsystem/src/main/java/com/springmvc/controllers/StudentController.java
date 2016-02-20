@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.springmvc.model.ResponseModel;
 import com.springmvc.model.Student;
 import com.springmvc.service.StudentService;
 
@@ -62,6 +63,22 @@ public class StudentController {
 	public String addStudent() {
 		
 		return "AddStudentPage";
+		
+	}
+	
+	@RequestMapping(value="/student/addstudent", method=RequestMethod.POST)
+	public @ResponseBody ResponseModel addStudent(@RequestBody Student student) {
+		
+		ResponseModel model = new ResponseModel(true);
+		
+		try {
+			studentService.addStudent(student);
+		} catch (Exception e) {
+			model.setResponse(false);
+			e.printStackTrace();
+		}
+
+		return model;
 		
 	}
 }

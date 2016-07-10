@@ -14,6 +14,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,6 +34,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
+
+	private static final Logger logger = Logger.getLogger(MainController.class);
 
 	@ModelAttribute
 	public void getHeaderMessage(Model model) {
@@ -56,6 +59,10 @@ public class MainController {
 	 */
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public ModelAndView handleHomePage() {
+
+		if(logger.isDebugEnabled()) {
+			logger.debug("Debug message from logger");
+		}
 
 		ModelAndView modelAndView = new ModelAndView("HomePage");
 
